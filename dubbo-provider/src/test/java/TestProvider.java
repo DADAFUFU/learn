@@ -1,3 +1,4 @@
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -8,11 +9,15 @@ import java.io.IOException;
  */
 public class TestProvider {
 
+    Logger logger = Logger.getLogger(TestProvider.class);
+
     @Test
     public void testProvider(){
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-servlet-provider.xml");
         context.start();
 
+        logger.info("Dubbo provider start...");
+        logger.debug("#####logger.debug#####");
         System.out.println("Dubbo provider start...");
 
         try {
